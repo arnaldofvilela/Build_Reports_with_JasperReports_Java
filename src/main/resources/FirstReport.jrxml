@@ -27,7 +27,7 @@
 					<text><![CDATA[TITLE]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="407" y="40" width="188" height="30" forecolor="#FFFFFF" uuid="199b9f47-0c29-480e-812c-e5132970acf1"/>
+					<reportElement key="name" x="407" y="40" width="188" height="30" forecolor="#FFFFFF" uuid="199b9f47-0c29-480e-812c-e5132970acf1"/>
 					<textElement>
 						<font size="13"/>
 					</textElement>
