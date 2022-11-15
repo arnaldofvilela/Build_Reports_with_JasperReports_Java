@@ -169,7 +169,7 @@
 		<band height="345" splitType="Stretch">
 			<pieChart>
 				<chart evaluationTime="Report">
-					<reportElement x="0" y="10" width="200" height="200" uuid="5d4bd1db-7562-472a-a29f-a694b0b75e5a"/>
+					<reportElement x="0" y="10" width="200" height="200" uuid="8a637b74-d391-4dfa-b6ba-6a093b78f90d"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
