@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class CustomReport {
@@ -28,15 +27,18 @@ public class CustomReport {
             list.add(subject4);
             list.add(subject5);
 
-            JRBeanCollectionDataSource dataSource =
-                    new JRBeanCollectionDataSource(list);
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(list);
 
             Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("studentName", "John");
+            parameters.put("tableData", dataSource);
 
             JasperReport report = JasperCompileManager.compileReport(filePath);
 
+            JasperPrint print =
+                    JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
 
+            JasperExportManager.exportReportToPdfFile(print, "/home/arnaldo/Desktop/Exported-Reports/student.pdf");
 
             System.out.println("Report Created...");
 
