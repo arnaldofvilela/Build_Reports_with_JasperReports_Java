@@ -1,12 +1,21 @@
 package com.infybuzz.report;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 
 public class CustomReport {
 
@@ -42,6 +51,13 @@ public class CustomReport {
             JasperExportManager.exportReportToPdfFile(print, "/home/arnaldo/Desktop/Exported-Reports/student.pdf");
 
             JasperExportManager.exportReportToHtmlFile(print, "/home/arnaldo/Desktop/Exported-Reports/student.html");
+
+            JRXlsxExporter exporter = new JRXlsxExporter();
+            exporter.setExporterInput(new SimpleExporterInput(print));
+            exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(new
+                    FileOutputStream(
+                            new File("/home/arnaldo/Desktop/Exported-Reports/student.xlsx"))));
+            exporter.exportReport();
 
             System.out.println("Report Created...");
 
