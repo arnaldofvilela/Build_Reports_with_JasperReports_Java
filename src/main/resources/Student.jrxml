@@ -36,6 +36,9 @@
 		<field name="marksObtained" class="java.lang.Long"/>
 		<field name="subjectName" class="java.lang.String"/>
 		<sortField name="subjectName"/>
+		<variable name="totalMarks" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{marksObtained}]]></variableExpression>
+		</variable>
 	</subDataset>
 	<parameter name="studentName" class="java.lang.String"/>
 	<parameter name="tableData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
@@ -93,7 +96,13 @@
 					<jr:column width="110" uuid="936a60ca-99de-4113-bf6f-abbe03909661">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="4135b4ff-e410-4e08-9234-0350208ad7c5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Total Marks = ]]></text>
+							</staticText>
+						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="110" height="30" uuid="1bfb3283-cec3-4773-b46d-5d223b78cbcd"/>
@@ -113,7 +122,13 @@
 					<jr:column width="110" uuid="1b80147a-ba5a-4bf3-b51d-f603f0b8fcef">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="30" uuid="98c6e6b4-b972-451a-8297-5d70bae0dd23"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{totalMarks}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="110" height="30" uuid="998524b9-06ed-4601-b580-c3e9364c8eb6"/>
