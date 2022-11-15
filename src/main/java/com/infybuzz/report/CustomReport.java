@@ -41,6 +41,8 @@ public class CustomReport {
 
             JasperExportManager.exportReportToPdfFile(print, "/home/arnaldo/Desktop/Exported-Reports/student.pdf");
 
+            JasperExportManager.exportReportToHtmlFile(print, "/home/arnaldo/Desktop/Exported-Reports/student.html");
+
             System.out.println("Report Created...");
 
         } catch(Exception e) {
